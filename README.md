@@ -12,3 +12,11 @@ Sample flask app with authorization and connected to CI/CD setup
 - pip install -r requirements.txt
 - python run.py
 - Visit the URL for conditions microservice documentation : http://127.0.0.1:5000/
+
+
+Tutorial reference : https://developers.sap.com/tutorials/btp-cf-buildpacks-python-create.html
+
+Note: Custom routes can also be created via manifest file if its in the account quota.
+
+  routes:
+    - route: python-1234567trial.cfapps.eu10.hana.ondemand.com

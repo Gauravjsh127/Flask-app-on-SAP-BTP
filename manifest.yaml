@@ -1,0 +1,6 @@
+applications:
+- name: flask-app
+  path: ./
+  memory: 128M
+  buildpack: python_buildpack
+  command: python run.py
