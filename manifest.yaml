@@ -1,8 +1,29 @@
 applications:
 - name: flask-app
+  routes:
+    - route: flask-app.cfapps.us10.hana.ondemand.com
   path: ./
   memory: 128M
   buildpack: python_buildpack
   command: python run.py
   services:
   - pyhana
+  - pyuaa
+
+- name: web
+  path: web
+  routes:
+  - route: web-app.cfapps.us10.hana.ondemand.com
+  memory: 128M
+  buildpack: nodejs_buildpack
+  env:
+    destinations:
+      [
+        {
+          "name":"flask-app",
+          "url":"https://flask-app.cfapps.us10.hana.ondemand.com",
+          "forwardAuthToken": true
+        }
+      ]
+  services:
+    - pyuaa
